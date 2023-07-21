@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 데이터베이스 관련 설정을 properties 외부 파일로 관리 -->
+	<bean id="DBproperties"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" <!-- 메모장같은 파일 형테 -->
+			value="classpath:/db-config/Hikari.properties" />
+	</bean>
+
+	<!-- 데이터베이스 연결 설정 -->
+	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+		<property name="driverClassName"
+			value="oracle.jdbc.driver.OracleDriver" />
+		<property name="jdbcUrl"
+			value="jdbc:oracle:thin:@localhost:1521:xe" />
+		<property name="username" value="HR" />
+		<property name="password" value="HR" />
+	</bean>
+	<!-- 데이터베이스 커넥션 객체가 들어있습니다. -->
+	<bean id="ds" class="com.zaxxer.hikari.HikariDataSource">
+		<constructor-arg ref="hikariConfig" />
+	</bean>
+
+</beans>

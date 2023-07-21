@@ -1,0 +1,36 @@
+package ex01;
+
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+import ex02.Hotel;
+
+public class MainClass {
+	
+	public static void main(String[] args) {
+		
+//		SpringTest st = new SpringTest();
+//		st.hello();
+		
+		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("application-context.xml");
+		
+//		//1st
+//		SpringTest st = (SpringTest)ctx.getBean("test");
+//		st.hello();
+//		
+//		//2st
+//		SpringTest st2  = ctx.getBean(SpringTest.class);
+//		st.hello();
+		
+		
+		Hotel hotel = ctx.getBean(Hotel.class);
+		hotel.getChef().cooking();
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}

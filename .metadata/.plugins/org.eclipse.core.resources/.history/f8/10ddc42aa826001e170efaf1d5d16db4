@@ -1,0 +1,27 @@
+package com.simple.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/response")
+public class ResponseController {
+
+	@RequestMapping("/res_ex01")
+	public void ex01() {
+		
+		
+	}
+	
+	//model 전달자
+	@RequestMapping("/ex02")
+	public String ex02(Model model) {
+		
+		model.addAttribute("name", "홍길동");
+		model.addAllAttributes("date", new Date());
+		
+		return "response/ex02";
+	}
+	
+}

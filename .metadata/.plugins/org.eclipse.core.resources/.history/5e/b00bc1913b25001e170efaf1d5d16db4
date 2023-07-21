@@ -1,0 +1,25 @@
+package ex05;
+
+public class Printer {
+
+	private Document document;
+	
+	//생성자 주입 ok
+	public Printer(Document document) {
+	
+	this.document = document;
+	}
+
+	//getter, setter 통한 주입 ok
+	public Document getDocument() {
+		return document;
+	}
+
+	public void setDocument(Document document) {
+		this.document = document;
+	}
+	
+	
+	
+	
+}

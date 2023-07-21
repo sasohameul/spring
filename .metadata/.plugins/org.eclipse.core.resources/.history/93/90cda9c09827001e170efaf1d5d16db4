@@ -1,0 +1,9 @@
+package com.simple.mapper;
+
+public interface ScoreMapper {
+
+	
+	
+	
+	
+}

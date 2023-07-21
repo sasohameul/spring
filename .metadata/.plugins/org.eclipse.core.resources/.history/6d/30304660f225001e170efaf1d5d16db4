@@ -1,0 +1,40 @@
+package com.simple.controller;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
+import org.springframework.web.servlet.mvc.multiaction.NoSuchRequestHandlingMethodException;
+
+//핸들러 어댑터에 연결이 되려면 특정 클래스를 상속을 받습니다.
+public class HomeController extends MultiActionController{
+
+	//alt+shift+s 의 override/implement methods의 handleNoSuchRequestHandlingMethod
+	@Override
+	protected ModelAndView handleNoSuchRequestHandlingMethod(NoSuchRequestHandlingMethodException ex,
+			HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+		String uri = request.getRequestURI();
+		String path = uri.substring(request.getContextPath().length());
+		
+		System.out.println(path);
+		
+		if(path.equals("/test/aaa")) {
+			
+			System.out.println("aaa 메서드");
+		} else if (path.equals("/test/bbb")) {
+			System.out.println("bbb 메서드");
+		}
+
+
+
+
+
+
+		return super.handleNoSuchRequestHandlingMethod(ex, request, response);
+	}
+
+
+
+}

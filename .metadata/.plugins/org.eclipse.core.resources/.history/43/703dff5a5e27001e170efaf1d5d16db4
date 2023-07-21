@@ -1,0 +1,15 @@
+package com.simple.dao;
+
+import org.springframework.stereotype.Repository;
+
+import com.simple.command.ScoreVO;
+
+@Repository("scoreDAO")
+public class ScoreDAOImpl implements ScoreDAO{
+
+	@Override
+	public void scoreRegist(ScoreVO vo) {
+
+	}
+
+}

@@ -1,0 +1,12 @@
+package com.simple.basic;
+
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+@RunWith(SpringJUnit4ClassRunner.class)//JUnit테스트 진행
+@ContextConfiguration("file:src/main/webapp/config/root-context.xml") //테스트를 진행할 스프링 설정파일
+public class JDBCTest {
+
+	
+}

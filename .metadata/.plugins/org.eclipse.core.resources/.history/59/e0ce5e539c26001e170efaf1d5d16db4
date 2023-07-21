@@ -1,0 +1,83 @@
+package com.simple.controller;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+@Controller
+@RequestMapping("/request")//각 메서드의 공통분모
+public class RequestController {
+
+	@RequestMapping("/req_ex01") //리퀘스트컨트롤러 클래스 위 requestMapping에 /request로 매핑하면 이 메서드의 주소맵핑은 request/req_ex01가 된다.
+	public String ex01() {
+		
+		
+		return "request/req_ex01";
+	}
+	//mothod=RequestMethod.Get => get요청만 허용한다는 의미
+	//@RequestMapping(value = "/basic1", method = RequestMethod.GET)
+	@GetMapping("/basic1")
+	public String basic1() {
+		
+		System.out.println("basic요청");
+		
+		return "request/basic1";
+	}
+	
+	//post요청만 허용
+	//@RequestMapping(value = "/basic2", method = RequestMethod.POST)
+	@PostMapping("/basic2")
+	public String basic2() {
+		
+		System.out.println("basic2요청");
+		
+		return "request/basic2";
+	}
+	
+	//get,post 둘 다 허용
+	@RequestMapping("/basic3")
+	public String basic3() {
+		
+		System.out.println("basic3요청");
+		
+		return "request/basic3";
+	}
+	
+	//////////////////////////////////////////////////
+	////////파라미터 값 받기 /////////////////
+	@RequestMapping("/req_ex02")
+	public String ex02() {
+		
+		return "request/req_ex02";
+		
+	}
+	
+	//전통적인 방법
+//	@RequestMapping("/param1")
+//	public String param1 ( HttpServletRequest request ) {
+//		
+//		String name = request.getParameter("name");
+//		String age = request.getParameter("age");
+//		String[] inter = request.getParameterValues("inter");;
+//		
+//		System.out.println(name);
+//		
+//		return "request/result"; //result 페이지로
+//	}
+	
+	//@RequestParam(req_ex02.jsp의 input태그 네임값)
+	@RequestMapping("/param1") 
+	public String param1 (@RequestParam("name") String x ) {
+		
+		
+		
+		return "request/result"; //result 페이지로
+	}
+	
+	
+}

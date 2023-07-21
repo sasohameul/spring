@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="test" class="ex01.SpringTest" />
+
+	<!-- id=이름, class=경로 -->
+	<bean id="chef" class="ex02.Chef" />
+	
+	<!-- ref = 참조할 빈의 아이디 -->
+	<bean id="hotel" class="ex02.Hotel">
+		<!-- 생성자-매개변수 참조할빈의 아이디는 chef -->
+		<constructor-arg ref="chef" />
+
+		<!--  -->
+	<bean id="dev" class="ex03.DatabaseDev">
+	<property name="url" value="jdbc:mysql://localhost"/>
+	<property name="uid" value="coding404"/>
+	<property name="upw" value="1234"/>
+	
+	</bean>
+	</bean>
+</beans>

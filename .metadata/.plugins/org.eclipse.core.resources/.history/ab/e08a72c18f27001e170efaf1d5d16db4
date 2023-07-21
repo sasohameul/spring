@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<!-- 데이터베이스 관련설정을 properties 외부 파일로 관리 -->
+	<!-- classpath:/ 는 resource폴더 아래를 가르킴 -->
+	<bean id="DBproperties"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location"
+			value="classpath:/db-config/Hikari.properties" />
+	</bean>
+
+
+
+	<!-- 데이터베이스 연결 설정 -->
+	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+		<property name="driverClassName"
+			value="${ds.driverClassName}" />
+		<property name="jdbcUrl" value="${ds.url}" />
+		<property name="username" value="${ds.username}" />
+		<property name="password" value="${ds.password}" />
+	</bean>
+
+
+	<!-- DB 커넥션객체가 들어있따 -->
+	<bean id="ds" class="com.zaxxer.hikari.HikariDataSource">
+		<constructor-arg ref="hikariConfig" />
+	</bean>
+
+	<!-- MyBatis의 사용의 핵심 객체 sessionFactory 추가 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<property name="dataSource" ref="ds"></property>
+	</bean>
+
+
+</beans>

@@ -1,0 +1,9 @@
+package com.simple.dao;
+
+import com.simple.command.ScoreVO;
+
+public interface ScoreDAO {
+
+	public void scoreRegist(ScoreVO vo); //보통 서비스영역의 인터페이스 메소드를 가져온다
+	
+}

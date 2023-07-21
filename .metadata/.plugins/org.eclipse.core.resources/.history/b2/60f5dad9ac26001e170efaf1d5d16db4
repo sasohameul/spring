@@ -1,0 +1,44 @@
+package com.simple.controller;
+
+import java.util.Date;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+@RequestMapping("/response")
+public class ResponseController {
+
+	@RequestMapping("/res_ex01")
+	public void ex01() {
+		
+		
+	}
+	
+	//model 방식 전달자 - 일반적으로 사용
+	@RequestMapping("/ex02")
+	public String ex02(Model model) {
+		
+		model.addAttribute("name", "홍길동");
+		model.addAttribute("date", new Date());
+		
+		return "response/ex02";
+	}
+	
+	//ModelAndView 방식 - 데이터와 페이지 정보를 동시에 저장하는 객체
+	@RequestMapping("/ex03")
+	public ModelAndView ex03() {
+		
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("serverTime",new Date()); //데이터
+		mv.setViewName("response/ex03"); //괄호 안에는 화면의 정보를 싣는다
+		
+		return mv;
+		
+	}
+	
+	
+	
+}

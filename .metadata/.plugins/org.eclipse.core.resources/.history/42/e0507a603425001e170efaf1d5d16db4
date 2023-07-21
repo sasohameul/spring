@@ -1,0 +1,15 @@
+package ex04;
+
+import java.util.List;
+import java.util.Map;
+
+public class Customer {
+
+	//멤버변수
+	private List<String> lists;
+	private List<MemberDAO> dao;
+	private Map<String, Object> map;
+	
+	
+	
+}
