@@ -9,8 +9,27 @@
   <!-- 매개변수의 전달 parameterType -->
   <insert id="scoreRegist" parameterType="com.simple.command.ScoreVO">
   								<!--?였던것이 #{}로 바뀌고 멤버변수명이들어감  -->
-  	insert into score(name,kor,eng) values(#{name}, #{kor}, ${eng})
+  	insert into score(name,kor,eng) values(#{name}, #{kor}, #{eng})
   	
   </insert>
+  <!-- select문의 맵핑할 vo의 풀 경로가 들어간다. -->
+  <!-- resultType에는 전체경로를 적어주어야한다. -->
+  <select id="getScore" resultType="com.simple.command.ScoreVO">
+  	select * from score order by num desc
+  
+  
+  </select>
+  <!-- 매개변수가 1개 일때는 ?는 변수명을 따라갑니다. -->
+  <delete id="scoreDelete" parameterType="int">
+  	delete from score where num = #{index} <!-- 중괄호 안에는 ScoreMapper.java의 scoreDelete의 변수 명이 들어간다. -->
+  
+  
+  </delete>
+  
+  
+  
+  
+  
+  
   
   </mapper>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- xml파일 이름은 반드시 인터페이스와 이름 동일하게 만들어줘야함 -->
+
+<mapper namespace="com.simple.mapper.BoardMapper">
+	<!-- insert -->
+	<!-- 매개변수의 전달 parameterType -->
+	<insert id="boardRegist"
+		parameterType="com.simple.command.BoardVO">
+		<!--?였던것이 #{}로 바뀌고 멤버변수명이들어감 -->
+
+		insert into board(name,title,content) values(#{name},
+		#{title},#{content})
+
+	</insert>
+
+	<select id="getList" resultType="com.simple.command.BoardVO">
+		select*from board order by num desc
+
+	</select>
+
+	<delete id="boardDelete" parameterType="int">
+
+		delete from board where num = #{num}
+	</delete>
+
+
+
+</mapper>

@@ -1,7 +1,0 @@
-package com.simple.controller;
-
-
-//핸들러 어댑터에 연결이 되려면 특정 클래스를 상속을 받습니다.
-public class HomeController {
-
-}

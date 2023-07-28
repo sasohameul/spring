@@ -36,6 +36,7 @@ public class JDBCTest {
 	@Autowired
 	private TestMapper testMapper; //마이바티스
 	
+//	@Test는 자바의 메인메서드
 	@Test
 	public void testCode2() {
 		

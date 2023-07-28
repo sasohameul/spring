@@ -42,7 +42,7 @@ public class ScoreController {
 
 		ArrayList<ScoreVO>list = scoreService.getScore(); 
 		model.addAttribute("list",list);
-		
+		System.out.println(list);
 		
 		return "service/scoreList"; //forward방식으로
 	}

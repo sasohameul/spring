@@ -24,7 +24,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	<!-- 컨트롤러패키지를 읽어서 @Contrlooer 어노테이션을 빈으로 생성 **는 모든 패키지 -->
-	<context:component-scan base-package="com.simple.**" />
+	<context:component-scan base-package="com.simple.*" />
 	
 	<!-- 서비스 영역을 bean으로 등록 id는 빈으로 객체생성 class는 경로-->
 	<!-- <beans:bean id="service" class="com.simple.service.ScoreServiceImpl"/> -->
